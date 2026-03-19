@@ -1,4 +1,4 @@
-# RoseAmor — Prueba Técnica Full Stack de Datos
+# Full Stack de Datos
 
 ## Stack utilizado
 - **Base de datos**: PostgreSQL 
@@ -60,69 +60,6 @@ La estructura se organiza así porque cada orden está asociada a un cliente, un
 - **La tabla app.orders**: Es para el aplicativo web y evitar conflictos a futuro.
 
 ---
-## Consultas SQL — kpis.sql
-
-El archivo `sql/kpis.sql` contiene todas las consultas que alimentan el dashboard.
-**Para ejecutarlas:**
-1. Abrir pgAdmin
-2. Click derecho en la base de datos `roseamor` → Query Tool
-3. Abrir el archivo `sql/kpis.sql`
-4. Ejecutar con F5
-
-## Cómo ejecutar
-
-### Requisitos
-- Python 3.11+
-- PostgreSQL 
-
-### Pasos
-
-```bash
-# 1. Clonar el repositorio
-git clone <url>
-cd roseamor
-
-# 2. Instalar dependencias
-pip install -r requirements.txt
-
-# 3. Crear base de datos
-psql -U postgres -c "CREATE DATABASE roseamor;"
-
-# 4. Configurar variables de entorno
-.env
-# Editar .env con tus credenciales 
-DB_HOST=
-DB_PORT=
-DB_NAME=
-DB_USER=
-DB_PASSWORD=
-
-
-# 5. Ejecutar el ETL
-python etl.py
-
-# 6. Ejecutar kpis.sql
-El archivo `sql/kpis.sql` contiene todas las consultas que alimentan el dashboard.
-Para ejecutarlas:
-Abrir pgAdmin
-Click derecho en la base de datos `roseamor` ->  Query Tool
-Abrir el archivo `sql/kpis.sql`
-Ejecutar con F5
-
-# 7. Ejecutar app web
-cd app
-python app.py
-#  http://localhost:5000
-```
-
-## Cómo actualizar
-
-Cuando llegue un nuevo CSV:
-
-1. Reemplazar el archivo en `data/raw/` con la versión nueva.
-2. Ejecutar nuevamente el flujo de trabajo.
-3. Los pedidos en `app.orders` **no se tocan** porque están en un schema separado.
-
 ---
 
 ## Dashboard BI
